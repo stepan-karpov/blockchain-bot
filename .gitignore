@@ -1,9 +1,9 @@
-secrets.json
 venv
 **__pycache**
 .vscode
 temp.txt
+secrets.json
 temp.py
 logs/
-!/src/logs
 tempCodeRunnerFile.py
+!/src/logs
