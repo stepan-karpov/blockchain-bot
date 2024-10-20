@@ -8,19 +8,17 @@ class Symbol:
     # public info
     self.name = name
     self.timerow = None
-    self.depth = None
 
     # private info
     self.bought_amount_usdt = 0
     self.last_buy_at = None
     self.last_sell_at = None
 
-  def Actualize(self, connection: InternalAPIConnection):
+  def Actualize(self, connection):
     log.info(f"Actualizing symbol={self.name}")
     self.timerow = connection.GetSymbolTimerow(self.name)
-    self.depth = connection.GetSymbolDepth(self.name)
     log.debug(f"Actualizing symbol={self.name}")
-    log.debug(f"Timerow={self.timerow}, depth={self.depth}\n\n\n")
+    log.debug(f"Timerow={self.timerow}\n\n\n")
 
   def Buy(self, connection, order_parameters):
     timestamp_ms = int(time.time() * 1000)
@@ -47,7 +45,7 @@ class Symbol:
 
     try:
       connection.Sell(order_parameters)
-      self.bought_amount_usdt += order_parameters["quantity"]
-      self.last_buy_at = timestamp_ms
+      self.bought_amount_usdt -= order_parameters["quantity"]
+      self.last_sell_at = timestamp_ms
     except Exception as e:
           log.error(str(e))

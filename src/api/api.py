@@ -2,7 +2,6 @@ import requests
 import datetime
 import os
 import json
-import time
 import subprocess
 from typing import Dict, Any
 
@@ -36,19 +35,22 @@ class InternalAPIConnection:
     if response != {}:
       raise Exception("Sell trancation fail. " + str(response))
 
-  def GetSymbolTimerow(self, symbol) -> Dict[str, str]:
-    params = {"symbol": symbol}
-    price_items = self.make_request("/api/v3/aggTrades", params)
+  def GetSymbolTimerow(self, symbol, human_readable: bool = False) -> Dict[str, str]:
+    params = {"symbol": symbol, "interval": "1m"}
+    price_items = self.make_request("/api/v3/klines", params)
     time_to_price = {}
     for price_item in price_items:
-      time = datetime.datetime.fromtimestamp(price_item["T"] // 1000)
-      time_to_price[time] = price_item["p"]
+      current_time = (price_item[0] + price_item[6]) // 2
+      current_price = (float(price_item[1]) + float(price_item[4])) / 2
+      if human_readable:
+        current_time = datetime.datetime.fromtimestamp(current_time // 1000).isoformat()
+
+      time_to_price[current_time] = current_price
     return time_to_price
 
-  def GetSymbolDepth(self, symbol) -> Dict[str, Any]:
+  def GetAvgPrice(self, symbol) -> Dict[str, Any]:
     params = {"symbol": symbol}
-    return self.make_request("/api/v3/depth", params)
-
+    return self.make_request("/api/v3/avgPrice", params)
 
   # private: 
   def make_request(self, endpoint, params=None):

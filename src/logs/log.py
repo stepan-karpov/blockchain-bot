@@ -1,4 +1,5 @@
-import time
+import sys
+import datetime
 
 ALL_LOGS = "logs/all.txt"
 DEBUG_FILE = "logs/debug.txt"
@@ -18,31 +19,43 @@ def clear_logs():
   with open(TRANSACTIONS_INFO, "w") as file:
     file.write("")
 
+def get_file_name():
+    return sys.argv[0]
+
+def get_current_time():
+  if sys.argv[0].find("backtester") != -1:
+    from backtester.time import current_time
+    datetime_obj = datetime.datetime.fromtimestamp(current_time // 1000)
+    return datetime_obj.strftime('%Y-%m-%d %H:%M:%S' + "." + str(current_time % 1000))
+  return datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
+
+
 def all(string):
   with open(ALL_LOGS, "a+") as file:
-    file.write(time.strftime("%Y-%m-%d %H:%M:%S") + " " + string + "\n")
+    
+    file.write(get_current_time() + " " + string + "\n")
     file.close()
 
 def debug(string):
   # all(string)
   with open(DEBUG_FILE, "a+") as file:
-    file.write(time.strftime("%Y-%m-%d %H:%M:%S") + " " + string + "\n")
+    file.write(get_current_time() + " " + string + "\n")
     file.close()
 
 def error(string):
   all("[ ERROR ] " + string)
   with open(ERROR_FILE, "a+") as file:
-    file.write(time.strftime("%Y-%m-%d %H:%M:%S") + " " + string + "\n")
+    file.write(get_current_time() + " " + string + "\n")
     file.close()
 
 def info(string):
   all("[ INFO ] " + string)
   with open(INFO_FILE, "a+") as file:
-    file.write(time.strftime("%Y-%m-%d %H:%M:%S") + " " + string + "\n")
+    file.write(get_current_time() + " " + string + "\n")
     file.close()
 
 def transaction(string):
   all("[ TRANSACTION ] " + string)
   with open(TRANSACTIONS_INFO, "a+") as file:
-    file.write(time.strftime("%Y-%m-%d %H:%M:%S") + " " + string + "\n")
+    file.write(get_current_time() + " " + string + "\n")
     file.close()
