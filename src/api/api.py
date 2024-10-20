@@ -95,6 +95,6 @@ class InternalAPIConnection:
     }
 
     log.info(f"Sending order={order_params} to MEXC")
-    response = requests.post(BASE_URL + "/api/v3/order", headers=headers, data=data)
+    response = requests.post(BASE_URL + "/api/v3/order/test", headers=headers, data=data)
     log.debug(str(response.json))
     return response.json()

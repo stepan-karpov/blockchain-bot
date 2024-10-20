@@ -15,12 +15,8 @@ class StrategyStupid1(Strategy):
       return {}
 
     order_params = {
-      "symbol": "AITPROTOCOLUSDT",
-      "side": "BUY",
       "order_type": "MARKET",
       "quantity": DEFAULT_BUY_AMOUNT_USDT[symbol.name],
-      "recvWindow": 50000,
-      "timestamp_ms": int(time.time() * 1000)
     }
     return order_params
 
@@ -29,11 +25,7 @@ class StrategyStupid1(Strategy):
       return {}
 
     order_params = {
-      "symbol": "AITPROTOCOLUSDT",
-      "side": "SELL",
       "order_type": "MARKET",
       "quantity": DEFAULT_BUY_AMOUNT_USDT[symbol.name],
-      "recvWindow": 50000,
-      "timestamp_ms": int(time.time() * 1000)
     }
     return order_params

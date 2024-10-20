@@ -24,26 +24,19 @@ if __name__ == "__main__":
     cnt += 1
     for symbol in symbols:
       symbol.Actualize(connection)
+
       if symbol.bought_amount_usdt == 0:
         order_parameters = strategy.DecideIfBuy(symbol)
         if len(order_parameters) == 0:
           continue
-        try:
-          connection.Buy(order_parameters)
-          symbol.bought_amount_usdt += order_parameters["quantity"]
-        except Exception as e:
-          log.error(str(e))
+        symbol.Buy(connection, order_parameters)
       else:
         order_parameters = strategy.DecideIfSell(symbol)
         if len(order_parameters) == 0:
           continue
-        try:
-          connection.Sell(order_parameters)
-          symbol.bought_amount_usdt -= order_parameters["quantity"]
-        except Exception as e:
-          log.error(str(e))
+        symbol.Sell(connection, order_parameters)
+        
 
-    time.sleep(100)
+    time.sleep(1)
     if cnt == 2:
       break
-
