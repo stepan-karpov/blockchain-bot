@@ -1,0 +1,100 @@
+2024-10-20 18:35:30.1 BUY=BNXUSDT parameters={'order_type': 'MARKET', 'quantity': 2.92, 'symbol': 'BNXUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649428}
+2024-10-20 18:35:30.1 Answer from MEXC={}
+2024-10-20 18:35:30.1 BUY=SAKAIUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'SAKAIUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649431}
+2024-10-20 18:35:30.1 Answer from MEXC={}
+2024-10-20 18:41:30.1 BUY=SYNUSDT parameters={'order_type': 'MARKET', 'quantity': 3.11, 'symbol': 'SYNUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649441}
+2024-10-20 18:41:30.1 Answer from MEXC={}
+2024-10-20 18:41:30.1 BUY=W3SUSDT parameters={'order_type': 'MARKET', 'quantity': 2.56, 'symbol': 'W3SUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649443}
+2024-10-20 18:41:30.1 Answer from MEXC={}
+2024-10-20 18:57:30.1 BUY=TUBESUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'TUBESUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649480}
+2024-10-20 18:57:30.1 Answer from MEXC={}
+2024-10-20 19:01:30.1 SELL=SYNUSDT parameters={'order_type': 'MARKET', 'quantity': 3.11, 'symbol': 'SYNUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649486}
+2024-10-20 19:01:30.1 Answer from MEXC={}
+2024-10-20 19:03:30.1 SELL=W3SUSDT parameters={'order_type': 'MARKET', 'quantity': 2.56, 'symbol': 'W3SUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649492}
+2024-10-20 19:03:30.1 Answer from MEXC={}
+2024-10-20 19:13:30.1 BUY=ELGUSDT parameters={'order_type': 'MARKET', 'quantity': 3.22, 'symbol': 'ELGUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649513}
+2024-10-20 19:13:30.1 Answer from MEXC={}
+2024-10-20 19:25:30.1 SELL=TUBESUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'TUBESUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649545}
+2024-10-20 19:25:30.1 Answer from MEXC={}
+2024-10-20 19:45:30.1 BUY=BAIUSDT parameters={'order_type': 'MARKET', 'quantity': 2.82, 'symbol': 'BAIUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649619}
+2024-10-20 19:45:30.1 Answer from MEXC={}
+2024-10-20 19:47:30.1 SELL=BNXUSDT parameters={'order_type': 'MARKET', 'quantity': 2.92, 'symbol': 'BNXUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649626}
+2024-10-20 19:47:30.1 Answer from MEXC={}
+2024-10-20 19:51:30.1 BUY=SYNUSDT parameters={'order_type': 'MARKET', 'quantity': 3.11, 'symbol': 'SYNUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649635}
+2024-10-20 19:51:30.1 Answer from MEXC={}
+2024-10-20 20:01:30.1 BUY=KDAUSDT parameters={'order_type': 'MARKET', 'quantity': 3.29, 'symbol': 'KDAUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649658}
+2024-10-20 20:01:30.1 Answer from MEXC={}
+2024-10-20 20:23:30.1 BUY=HTMUSDT parameters={'order_type': 'MARKET', 'quantity': 2.04, 'symbol': 'HTMUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649714}
+2024-10-20 20:23:30.1 Answer from MEXC={}
+2024-10-20 20:27:30.1 SELL=ELGUSDT parameters={'order_type': 'MARKET', 'quantity': 3.22, 'symbol': 'ELGUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649722}
+2024-10-20 20:27:30.1 Answer from MEXC={}
+2024-10-20 20:39:30.1 SELL=SYNUSDT parameters={'order_type': 'MARKET', 'quantity': 3.11, 'symbol': 'SYNUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649752}
+2024-10-20 20:39:30.1 Answer from MEXC={}
+2024-10-20 20:41:30.1 SELL=KDAUSDT parameters={'order_type': 'MARKET', 'quantity': 3.29, 'symbol': 'KDAUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649756}
+2024-10-20 20:41:30.1 Answer from MEXC={}
+2024-10-20 20:51:30.1 BUY=TUBESUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'TUBESUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649784}
+2024-10-20 20:51:30.1 Answer from MEXC={}
+2024-10-20 20:55:30.1 BUY=BNXUSDT parameters={'order_type': 'MARKET', 'quantity': 2.92, 'symbol': 'BNXUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649791}
+2024-10-20 20:55:30.1 Answer from MEXC={}
+2024-10-20 21:01:30.1 BUY=KDAUSDT parameters={'order_type': 'MARKET', 'quantity': 3.29, 'symbol': 'KDAUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649805}
+2024-10-20 21:01:30.1 Answer from MEXC={}
+2024-10-20 21:17:30.1 BUY=W3SUSDT parameters={'order_type': 'MARKET', 'quantity': 2.56, 'symbol': 'W3SUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649846}
+2024-10-20 21:17:30.1 Answer from MEXC={}
+2024-10-20 21:21:30.1 SELL=BNXUSDT parameters={'order_type': 'MARKET', 'quantity': 2.92, 'symbol': 'BNXUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649854}
+2024-10-20 21:21:30.1 Answer from MEXC={}
+2024-10-20 21:27:30.1 SELL=TUBESUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'TUBESUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649872}
+2024-10-20 21:27:30.1 Answer from MEXC={}
+2024-10-20 21:45:30.1 SELL=KDAUSDT parameters={'order_type': 'MARKET', 'quantity': 3.29, 'symbol': 'KDAUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649913}
+2024-10-20 21:45:30.1 Answer from MEXC={}
+2024-10-20 21:47:30.1 BUY=ELGUSDT parameters={'order_type': 'MARKET', 'quantity': 3.22, 'symbol': 'ELGUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649918}
+2024-10-20 21:47:30.1 Answer from MEXC={}
+2024-10-20 21:57:30.1 BUY=BNXUSDT parameters={'order_type': 'MARKET', 'quantity': 2.92, 'symbol': 'BNXUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649944}
+2024-10-20 21:57:30.1 Answer from MEXC={}
+2024-10-20 21:57:30.1 SELL=W3SUSDT parameters={'order_type': 'MARKET', 'quantity': 2.56, 'symbol': 'W3SUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470649946}
+2024-10-20 21:57:30.1 Answer from MEXC={}
+2024-10-20 22:11:30.1 BUY=TUBESUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'TUBESUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470649982}
+2024-10-20 22:11:30.1 Answer from MEXC={}
+2024-10-20 22:33:30.1 BUY=TBCUSDT parameters={'order_type': 'MARKET', 'quantity': 1.45, 'symbol': 'TBCUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650072}
+2024-10-20 22:33:30.1 Answer from MEXC={}
+2024-10-20 22:45:30.1 BUY=SYNUSDT parameters={'order_type': 'MARKET', 'quantity': 3.11, 'symbol': 'SYNUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650099}
+2024-10-20 22:45:30.1 Answer from MEXC={}
+2024-10-20 23:01:30.1 SELL=SYNUSDT parameters={'order_type': 'MARKET', 'quantity': 3.11, 'symbol': 'SYNUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470650142}
+2024-10-20 23:01:30.1 Answer from MEXC={}
+2024-10-20 23:11:30.1 BUY=W3SUSDT parameters={'order_type': 'MARKET', 'quantity': 2.56, 'symbol': 'W3SUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650213}
+2024-10-20 23:11:30.1 Answer from MEXC={}
+2024-10-20 23:15:30.1 SELL=W3SUSDT parameters={'order_type': 'MARKET', 'quantity': 2.56, 'symbol': 'W3SUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470650584}
+2024-10-20 23:15:30.1 Answer from MEXC={}
+2024-10-20 23:15:30.1 SELL=TUBESUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'TUBESUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470650610}
+2024-10-20 23:15:30.1 Answer from MEXC={}
+2024-10-20 23:21:30.1 BUY=W3SUSDT parameters={'order_type': 'MARKET', 'quantity': 2.56, 'symbol': 'W3SUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650694}
+2024-10-20 23:21:30.1 Answer from MEXC={}
+2024-10-20 23:23:30.1 BUY=TUBESUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'TUBESUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650706}
+2024-10-20 23:23:30.1 Answer from MEXC={}
+2024-10-20 23:27:30.1 SELL=BNXUSDT parameters={'order_type': 'MARKET', 'quantity': 2.92, 'symbol': 'BNXUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470650718}
+2024-10-20 23:27:30.1 Answer from MEXC={}
+2024-10-20 23:31:30.1 SELL=SAKAIUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'SAKAIUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470650757}
+2024-10-20 23:31:30.1 Answer from MEXC={}
+2024-10-20 23:33:30.1 BUY=ERGUSDT parameters={'order_type': 'MARKET', 'quantity': 2.98, 'symbol': 'ERGUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650761}
+2024-10-20 23:33:30.1 Answer from MEXC={}
+2024-10-20 23:37:30.1 BUY=KDAUSDT parameters={'order_type': 'MARKET', 'quantity': 3.29, 'symbol': 'KDAUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650778}
+2024-10-20 23:37:30.1 Answer from MEXC={}
+2024-10-20 23:53:30.1 SELL=TBCUSDT parameters={'order_type': 'MARKET', 'quantity': 1.45, 'symbol': 'TBCUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470650849}
+2024-10-20 23:53:30.1 Answer from MEXC={}
+2024-10-21 00:03:30.1 BUY=EWTUSDT parameters={'order_type': 'MARKET', 'quantity': 1.74, 'symbol': 'EWTUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650876}
+2024-10-21 00:03:30.1 Answer from MEXC={}
+2024-10-21 00:33:30.1 BUY=BNXUSDT parameters={'order_type': 'MARKET', 'quantity': 2.92, 'symbol': 'BNXUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470650962}
+2024-10-21 00:33:30.1 Answer from MEXC={}
+2024-10-21 00:39:30.1 SELL=KDAUSDT parameters={'order_type': 'MARKET', 'quantity': 3.29, 'symbol': 'KDAUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470650978}
+2024-10-21 00:39:30.1 Answer from MEXC={}
+2024-10-21 00:59:30.1 SELL=BNXUSDT parameters={'order_type': 'MARKET', 'quantity': 2.92, 'symbol': 'BNXUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470651060}
+2024-10-21 00:59:30.1 Answer from MEXC={}
+2024-10-21 01:11:30.1 SELL=W3SUSDT parameters={'order_type': 'MARKET', 'quantity': 2.56, 'symbol': 'W3SUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470651108}
+2024-10-21 01:11:30.1 Answer from MEXC={}
+2024-10-21 01:25:30.1 SELL=TUBESUSDT parameters={'order_type': 'MARKET', 'quantity': 1.48, 'symbol': 'TUBESUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470651152}
+2024-10-21 01:25:30.1 Answer from MEXC={}
+2024-10-21 01:45:30.1 SELL=EWTUSDT parameters={'order_type': 'MARKET', 'quantity': 1.74, 'symbol': 'EWTUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470651211}
+2024-10-21 01:45:30.1 Answer from MEXC={}
+2024-10-21 02:01:30.1 SELL=ELGUSDT parameters={'order_type': 'MARKET', 'quantity': 3.22, 'symbol': 'ELGUSDT', 'side': 'SELL', 'recvWindow': 5000, 'timestamp_ms': 1729470651351}
+2024-10-21 02:01:30.1 Answer from MEXC={}
+2024-10-21 02:27:30.1 BUY=SYNUSDT parameters={'order_type': 'MARKET', 'quantity': 3.11, 'symbol': 'SYNUSDT', 'side': 'BUY', 'recvWindow': 5000, 'timestamp_ms': 1729470651461}
+2024-10-21 02:27:30.1 Answer from MEXC={}

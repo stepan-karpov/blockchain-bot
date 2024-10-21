@@ -33,7 +33,10 @@ class StrategyStupid1(Strategy):
     if symbol.bought_amount_usdt > 0:
       return {}
     
-    if len(symbol.prices) >= 2 and symbol.prices[-2] > symbol.prices[-1]:
+    if not (len(symbol.prices) >= 4 and symbol.prices[-4] < symbol.prices[-2] < symbol.prices[-1]):
+      return {}
+
+    if random.random() > 0.1:
       return {}
 
     order_params = {
@@ -46,7 +49,10 @@ class StrategyStupid1(Strategy):
     if symbol.bought_amount_usdt == 0:
       return {}
     
-    if len(symbol.prices) >= 2 and symbol.prices[-2] < symbol.prices[-1]:
+    if not (len(symbol.prices) >= 4 and symbol.prices[-4] > symbol.prices[-2] > symbol.prices[-1]):
+      return {}
+
+    if random.random() > 0.1:
       return {}
 
     order_params = {

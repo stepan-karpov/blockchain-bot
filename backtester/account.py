@@ -4,6 +4,7 @@ from common import SYMBOLS
 class Account:
   def __init__(self):
     self.comission = 0.02 / 100
+    self.transactions_number = 0
     self.state = {
       "USDT": 50,
     }
@@ -17,21 +18,25 @@ class Account:
     self.last_price[symbol_to_buy] = price
 
     log.info(f"{symbol_to_buy} / USDT = {price}")
+    self.transactions_number += 1
     value = price * quantity
     self.state["USDT"] -= value * (1 + self.comission)
     if self.state["USDT"] < 0:
-      raise Exception("BANKROT")
+      assert False
     self.state[symbol_to_buy] += quantity
     self.PrintState()
     
 
-  def Sell(self, symbol_to_buy, quantity, price):
-    self.last_price[symbol_to_buy] = price
+  def Sell(self, symbol_to_sell, quantity, price):
+    self.last_price[symbol_to_sell] = price
 
-    log.info(f"{symbol_to_buy} / USDT = {price}")
+    log.info(f"{symbol_to_sell} / USDT = {price}")
+    self.transactions_number += 1
     value = price * quantity 
     self.state["USDT"] += value * (1 - self.comission)
-    self.state[symbol_to_buy] -= quantity
+    self.state[symbol_to_sell] -= quantity
+    if self.state[symbol_to_sell] < 0:
+      assert False
     self.PrintState()
   
   def PrintState(self):
@@ -45,4 +50,4 @@ class Account:
       except:
         pass
 
-    log.info(f"USDT ~ {usdt_value}")
+    log.info(f"USDT ~ {usdt_value}, transactions_number = {self.transactions_number}")
