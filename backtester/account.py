@@ -10,7 +10,12 @@ class Account:
     for symbol in SYMBOLS:
       self.state[symbol] = 0
 
+    # not valid, for visualization only!!
+    self.last_price = {}
+
   def Buy(self, symbol_to_buy, quantity, price):
+    self.last_price[symbol_to_buy] = price
+
     log.info(f"{symbol_to_buy} / USDT = {price}")
     value = price * quantity
     self.state["USDT"] -= value * (1 + self.comission)
@@ -21,6 +26,8 @@ class Account:
     
 
   def Sell(self, symbol_to_buy, quantity, price):
+    self.last_price[symbol_to_buy] = price
+
     log.info(f"{symbol_to_buy} / USDT = {price}")
     value = price * quantity 
     self.state["USDT"] += value * (1 - self.comission)
@@ -29,3 +36,13 @@ class Account:
   
   def PrintState(self):
     log.info(str(self.state))
+    usdt_value = self.state["USDT"]
+    for symb_name, symb_value in self.state.items():
+      if symb_name == "USDT":
+        continue
+      try:
+        usdt_value += self.last_price[symb_name] * symb_value
+      except:
+        pass
+
+    log.info(f"USDT ~ {usdt_value}")

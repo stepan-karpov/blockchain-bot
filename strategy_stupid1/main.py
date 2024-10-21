@@ -3,6 +3,7 @@ import random
 
 from src.base_strategy import Strategy
 from src.symbol.symbol import Symbol
+import src.logs.log as logs
 from common import SYMBOLS
 
 
@@ -29,7 +30,10 @@ class StrategyStupid1(Strategy):
     self.DEFAULT_SELL_AMOUNT_USDT = self.DEFAULT_BUY_AMOUNT_USDT
 
   def DecideIfBuy(self, symbol: Symbol) -> Dict[str, Any]:
-    if symbol.bought_amount_usdt > 0 or random.randint(0, 1):
+    if symbol.bought_amount_usdt > 0:
+      return {}
+    
+    if len(symbol.prices) >= 2 and symbol.prices[-2] > symbol.prices[-1]:
       return {}
 
     order_params = {
@@ -39,7 +43,10 @@ class StrategyStupid1(Strategy):
     return order_params
 
   def DecideIfSell(self, symbol: Symbol) -> Dict[str, Any]:
-    if symbol.bought_amount_usdt == 0 or random.randint(0, 1):
+    if symbol.bought_amount_usdt == 0:
+      return {}
+    
+    if len(symbol.prices) >= 2 and symbol.prices[-2] < symbol.prices[-1]:
       return {}
 
     order_params = {

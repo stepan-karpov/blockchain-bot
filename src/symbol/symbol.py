@@ -7,18 +7,29 @@ class Symbol:
   def __init__(self, name):
     # public info
     self.name = name
-    self.timerow = None
+    self.prices = None
+    self.current_price = -1
 
     # private info
     self.bought_amount_usdt = 0
     self.last_buy_at = None
     self.last_sell_at = None
 
+  def GetPrices(self, timerow):
+    prices = []
+    last_timestamp = -1
+    for timestamp, value in timerow.items():
+       assert timestamp > last_timestamp
+       prices.append(value)
+       last_timestamp = timestamp
+    return prices
+
   def Actualize(self, connection):
     log.info(f"Actualizing symbol={self.name}")
-    self.timerow = connection.GetSymbolTimerow(self.name)
+    self.prices = self.GetPrices(connection.GetSymbolTimerow(self.name))
+
     log.debug(f"Actualizing symbol={self.name}")
-    log.debug(f"Timerow={self.timerow}\n\n\n")
+    log.debug(f"Timerow={self.prices}\n\n\n")
 
   def Buy(self, connection, order_parameters):
     timestamp_ms = int(time.time() * 1000)
