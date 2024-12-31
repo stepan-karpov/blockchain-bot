@@ -22,21 +22,36 @@ class InternalAPIConnection:
       self.secret_key = data["secret_key"]
 
   def Buy(self, order_params: Dict[str, Any]):
-    log.transaction(f"BUY={order_params["symbol"]} parameters={order_params}")
-    response = self.send_order(order_params, self.get_signature(order_params))
+    data = {
+      "symbol": order_params["symbol"],
+      "side": order_params["side"],
+      "type": order_params["order_type"],
+      "quantity": order_params["quantity"],
+      "recvWindow": order_params["recvWindow"],
+      "timestamp": order_params["timestamp_ms"],
+    }
+    log.transaction(f"BUY={data["symbol"]} parameters={data}")
+    data["signature"] = self.get_signature(data)
+    response = self.send_order(data)
     log.transaction(f"Answer from MEXC={response}")
-    if response != {}:
-      raise Exception("Buy trancation fail. " + str(response))
 
   def Sell(self, order_params: Dict[str, Any]):
-    log.transaction(f"SELL={order_params["symbol"]} parameters={order_params}")
-    response = self.send_order(order_params, self.get_signature(order_params))
+    data = {
+      "symbol": order_params["symbol"],
+      "side": order_params["side"],
+      "type": order_params["order_type"],
+      "quantity": order_params["quantity"],
+      "recvWindow": order_params["recvWindow"],
+      "timestamp": order_params["timestamp_ms"],
+    }
+
+    log.transaction(f"SELL={data["symbol"]} parameters={data}")
+    data["signature"] = self.get_signature(data)
+    response = self.send_order(data)
     log.transaction(f"Answer from MEXC={response}")
-    if response != {}:
-      raise Exception("Sell trancation fail. " + str(response))
 
   def GetSymbolTimerow(self, symbol, human_readable: bool = False) -> Dict[str, str]:
-    params = {"symbol": symbol, "interval": "1m"}
+    params = {"symbol": symbol, "interval": "1d"}
     price_items = self.make_request("/api/v3/klines", params)
     time_to_price = {}
     for price_item in price_items:
@@ -52,22 +67,22 @@ class InternalAPIConnection:
     params = {"symbol": symbol}
     return self.make_request("/api/v3/avgPrice", params)
 
+  def GetDefaultSymbols(self) -> Dict[str, Any]:
+    return self.make_request("/api/v3/defaultSymbols")
+
   # private: 
-  def make_request(self, endpoint, params=None):
-    response = requests.get(BASE_URL + endpoint, params=params)
+  def make_request(self, endpoint, params=None, headers=None):
+    response = requests.get(BASE_URL + endpoint, params=params, headers=headers)
     result = response.json()
     return result
 
   def get_signature(self, order_params) -> str:
-    symbol = order_params["symbol"]
-    side = order_params["side"]
-    order_type = order_params["order_type"]
-    quantity = order_params["quantity"]
-    recvWindow = order_params["recvWindow"]
-    timestamp_ms = order_params["timestamp_ms"]
-    TEMPFILE_NAME = 'temp.sh'
+    query = ""
+    for parameter_name, parameter_value in order_params.items():
+      query += parameter_name + "=" + str(parameter_value) + "&"
+    query = query[:-1]
 
-    query = f"symbol={symbol}&side={side}&type={order_type}&quantity={quantity}&recvWindow={recvWindow}&timestamp={timestamp_ms}"
+    TEMPFILE_NAME = 'temp.sh'
     first_cmd = "echo -n \"" + query + "\" | openssl dgst -sha256 -hmac \"" + self.secret_key + "\""
 
     with open(TEMPFILE_NAME, 'w') as f:
@@ -81,22 +96,12 @@ class InternalAPIConnection:
     return signature
 
 
-  def send_order(self, order_params: Dict, signature: str) -> None:
+  def send_order(self, data: Dict) -> None:
     headers = {
         "X-MEXC-APIKEY": self.api_key,
         "Content-Type": "application/json"
     }
-    data = {
-        "symbol": order_params["symbol"],
-        "side": order_params["side"],
-        "type": order_params["order_type"],
-        "quantity": order_params["quantity"],
-        "recvWindow": order_params["recvWindow"],
-        "timestamp": order_params["timestamp_ms"],
-        "signature": signature
-    }
-
-    log.info(f"Sending order={order_params} to MEXC")
-    response = requests.post(BASE_URL + "/api/v3/order/test", headers=headers, data=data)
+    log.info(f"Sending order={data} to MEXC")
+    response = requests.post(BASE_URL + "/api/v3/order", headers=headers, data=data)
     log.debug(str(response.json))
     return response.json()

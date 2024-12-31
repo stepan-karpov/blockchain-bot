@@ -5,8 +5,6 @@ from src.symbol.symbol import Symbol
 from src.api.api import InternalAPIConnection
 import src.logs.log as log 
 
-from strategy_stupid1.main import StrategyStupid1 # import strategy
-
 class SimplePoller:
   def __init__(self, connection, strategy, symbol_names_to_poll):
     self.connection = connection

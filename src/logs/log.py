@@ -37,7 +37,6 @@ def all(string):
     file.close()
 
 def debug(string):
-  # all(string)
   with open(DEBUG_FILE, "a+") as file:
     file.write(get_current_time() + " " + string + "\n")
     file.close()
