@@ -29,10 +29,14 @@ def GetSymbolTimerow(symbol, start_time, end_time, chunk_size) -> Dict[str, str]
     last_start_time = current_end_time
 
     params = {"symbol": symbol, "interval": "1m", "startTime": current_start_time, "endTime": current_end_time, "limit": 500}
-    current_timerow = make_request("/api/v3/klines", params)
+    try: # sometimes network flaps
+      current_timerow = make_request("/api/v3/klines", params)
+    except:
+      current_timerow = make_request("/api/v3/klines", params)
     if (len(current_timerow) < 500):
-      raise Exception("There are no data with such precision in MEXC API")
+      print("There are no data with such precision in MEXC API")
     timerow.extend(current_timerow)
+  print(f"Symbol={symbol} was downloaded")
   return timerow
 
 
@@ -40,12 +44,12 @@ def GetSymbolTimerow(symbol, start_time, end_time, chunk_size) -> Dict[str, str]
 def fill_mocked_data():
   now = datetime.datetime.now()
   N = 30
-  d = 1
+  d = 30
   start_time = int(time.mktime((now - datetime.timedelta(days=N)).timetuple()) * 1000)
   end_time = int(time.mktime((now - datetime.timedelta(days=N - d)).timetuple()) * 1000)
   chunk_size = 500
 
-  for symbol in ["AITPROTOCOLUSDT"]:
+  for symbol in ["ETHUSDT", "PEPEUSDT", "JUPUSDT", "WIFUSDT", "GNSUSDT"]:
     data = {}
     data["timerow"] = GetSymbolTimerow(symbol, start_time, end_time, chunk_size)
 
