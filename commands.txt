@@ -1,0 +1,12 @@
+```
+export PYTHONPATH=/root/blockchain-bot:$PYTHONPATH
+
+python3 -m venv venv
+
+pip install requests
+
+pip install prometheus-client
+
+pip install psycopg2-binary
+
+```

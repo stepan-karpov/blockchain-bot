@@ -31,7 +31,7 @@ class InternalAPIConnection:
       "recvWindow": order_params["recvWindow"],
       "timestamp": order_params["timestamp_ms"],
     }
-    log.transaction(f"BUY={data["symbol"]} parameters={data}")
+    log.transaction(f"BUY={data['symbol']} parameters={data}")
     data["signature"] = self.get_signature(data)
     response = self.send_order(data)
     log.transaction(f"Answer from MEXC={response}")
@@ -46,7 +46,7 @@ class InternalAPIConnection:
       "timestamp": order_params["timestamp_ms"],
     }
 
-    log.transaction(f"SELL={data["symbol"]} parameters={data}")
+    log.transaction(f"SELL={data['symbol']} parameters={data}")
     data["signature"] = self.get_signature(data)
     response = self.send_order(data)
     log.transaction(f"Answer from MEXC={response}")
