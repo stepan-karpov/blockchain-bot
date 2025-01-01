@@ -1,1 +1,0 @@
-2024-12-31 22:54:19.397040 <bound method Response.json of <Response [200]>>

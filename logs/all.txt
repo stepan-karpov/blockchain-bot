@@ -1,5 +1,3 @@
-2024-12-31 22:54:18.843501 [ INFO ] Internal API init
-2024-12-31 22:54:18.844237 [ TRANSACTION ] SELL=AITPROTOCOLUSDT parameters={'symbol': 'AITPROTOCOLUSDT', 'side': 'SELL', 'type': 'MARKET', 'quantity': 20, 'recvWindow': 5000, 'timestamp': 1735674858844}
-2024-12-31 22:54:18.855339 [ INFO ] Sending order={'symbol': 'AITPROTOCOLUSDT', 'side': 'SELL', 'type': 'MARKET', 'quantity': 20, 'recvWindow': 5000, 'timestamp': 1735674858844, 'signature': '9c7e999c812a8008bf4ae178bffc271094683478ecf96ff192ef5b799e5419ac'} to MEXC
-2024-12-31 22:54:19.397770 [ TRANSACTION ] Answer from MEXC={'symbol': 'AITPROTOCOLUSDT', 'orderId': 'C02__502866110027177984105', 'orderListId': -1, 'price': '0.0529', 'origQty': '20', 'type': 'MARKET', 'side': 'SELL', 'transactTime': 1735674859297}
-2024-12-31 22:54:19.398115 [ ERROR ] Sell trancation fail. {'symbol': 'AITPROTOCOLUSDT', 'orderId': 'C02__502866110027177984105', 'orderListId': -1, 'price': '0.0529', 'origQty': '20', 'type': 'MARKET', 'side': 'SELL', 'transactTime': 1735674859297}
+2025-01-01 17:16:13.192756 [ INFO ] Internal API init
+2024-10-20 18:27:30.1 [ INFO ] Internal API init
+2024-10-20 18:27:30.1 [ INFO ] Internal API init

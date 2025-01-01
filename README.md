@@ -1,4 +1,5 @@
 export PYTHONPATH=/Users/stepan-karpov/Desktop/blockchain-bot:$PYTHONPATH
+(venv) stepan-karpov@i113819829 blockchain-bot % python3 "/Users/stepan-karpov/Desktop/blockchain-bot/src/components/examples.py"
 
 # **Автоматизированный Бот для Торговли на Криптобиржах**
 

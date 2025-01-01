@@ -1,2 +1,3 @@
-2024-12-31 22:54:18.843606 Internal API init
-2024-12-31 22:54:18.855421 Sending order={'symbol': 'AITPROTOCOLUSDT', 'side': 'SELL', 'type': 'MARKET', 'quantity': 20, 'recvWindow': 5000, 'timestamp': 1735674858844, 'signature': '9c7e999c812a8008bf4ae178bffc271094683478ecf96ff192ef5b799e5419ac'} to MEXC
+2025-01-01 17:16:13.192849 Internal API init
+2024-10-20 18:27:30.1 Internal API init
+2024-10-20 18:27:30.1 Internal API init

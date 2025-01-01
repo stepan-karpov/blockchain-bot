@@ -3,7 +3,8 @@ import datetime
 import os
 import json
 import subprocess
-from typing import Dict, Any
+import time
+from typing import Dict, Any, List
 
 from src.common import BASE_URL, SECRETS_FILE
 import src.logs.log as log
@@ -50,18 +51,10 @@ class InternalAPIConnection:
     response = self.send_order(data)
     log.transaction(f"Answer from MEXC={response}")
 
-  def GetSymbolTimerow(self, symbol, human_readable: bool = False) -> Dict[str, str]:
-    params = {"symbol": symbol, "interval": "1d"}
-    price_items = self.make_request("/api/v3/klines", params)
-    time_to_price = {}
-    for price_item in price_items:
-      current_time = (price_item[0] + price_item[6]) // 2
-      current_price = (float(price_item[1]) + float(price_item[4])) / 2
-      if human_readable:
-        current_time = datetime.datetime.fromtimestamp(current_time // 1000).isoformat()
+  def GetSymbolTimerow(self, symbol) -> List[Any]:
+    params = {"symbol": symbol, "interval": "1m", "limit": 1000}
+    return self.make_request("/api/v3/klines", params)
 
-      time_to_price[current_time] = current_price
-    return time_to_price
 
   def GetAvgPrice(self, symbol) -> Dict[str, Any]:
     params = {"symbol": symbol}
@@ -70,9 +63,22 @@ class InternalAPIConnection:
   def GetDefaultSymbols(self) -> Dict[str, Any]:
     return self.make_request("/api/v3/defaultSymbols")
 
+  def GetAccountInfo(self) -> Dict[str, Any]:
+    headers = {
+        "X-MEXC-APIKEY": self.api_key,
+        "Content-Type": "application/json"
+    }
+    timestamp = int(time.time() * 1000)
+    parameters = {
+      "timestamp": timestamp,
+      "recvWindow": 5000,
+      "signature": self.get_signature({"timestamp": timestamp, "recvWindow": 5000})
+    }
+    return self.make_request("/api/v3/account", headers=headers, parameters=parameters)
+
   # private: 
-  def make_request(self, endpoint, params=None, headers=None):
-    response = requests.get(BASE_URL + endpoint, params=params, headers=headers)
+  def make_request(self, endpoint, parameters=None, headers=None, data=None):
+    response = requests.get(BASE_URL + endpoint, params=parameters, headers=headers, data=data)
     result = response.json()
     return result
 
@@ -102,6 +108,6 @@ class InternalAPIConnection:
         "Content-Type": "application/json"
     }
     log.info(f"Sending order={data} to MEXC")
-    response = requests.post(BASE_URL + "/api/v3/order", headers=headers, data=data)
+    response = requests.post(BASE_URL + "/api/v3/order/test", headers=headers, data=data)
     log.debug(str(response.json))
     return response.json()

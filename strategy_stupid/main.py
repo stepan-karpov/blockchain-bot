@@ -3,13 +3,11 @@ import random
 
 from src.base_strategy import Strategy
 from src.symbol.symbol import Symbol
-import src.logs.log as logs
-from common import SYMBOLS
 
 
-
-class StrategyStupid1(Strategy):
+class StrategyStupid(Strategy):
   def __init__(self):
+    pass
     self.DEFAULT_BUY_AMOUNT_USDT = {
       "KDAUSDT": 3.29,
       "ELGUSDT": 3.22,
@@ -30,10 +28,7 @@ class StrategyStupid1(Strategy):
     self.DEFAULT_SELL_AMOUNT_USDT = self.DEFAULT_BUY_AMOUNT_USDT
 
   def DecideIfBuy(self, symbol: Symbol) -> Dict[str, Any]:
-    if symbol.bought_amount_usdt > 0:
-      return {}
-    
-    if random.random() > 0.1:
+    if random.random() > 0.9:
       return {}
 
     order_params = {
@@ -43,10 +38,7 @@ class StrategyStupid1(Strategy):
     return order_params
 
   def DecideIfSell(self, symbol: Symbol) -> Dict[str, Any]:
-    if symbol.bought_amount_usdt == 0:
-      return {}
-    
-    if random.random() > 0.1:
+    if random.random() > 0.9:
       return {}
 
     order_params = {

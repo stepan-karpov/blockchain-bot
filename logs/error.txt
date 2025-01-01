@@ -1,1 +1,0 @@
-2024-12-31 22:54:19.398268 Sell trancation fail. {'symbol': 'AITPROTOCOLUSDT', 'orderId': 'C02__502866110027177984105', 'orderListId': -1, 'price': '0.0529', 'origQty': '20', 'type': 'MARKET', 'side': 'SELL', 'transactTime': 1735674859297}

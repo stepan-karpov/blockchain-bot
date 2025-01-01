@@ -1,2 +1,0 @@
-2024-12-31 22:54:18.844277 SELL=AITPROTOCOLUSDT parameters={'symbol': 'AITPROTOCOLUSDT', 'side': 'SELL', 'type': 'MARKET', 'quantity': 20, 'recvWindow': 5000, 'timestamp': 1735674858844}
-2024-12-31 22:54:19.397952 Answer from MEXC={'symbol': 'AITPROTOCOLUSDT', 'orderId': 'C02__502866110027177984105', 'orderListId': -1, 'price': '0.0529', 'origQty': '20', 'type': 'MARKET', 'side': 'SELL', 'transactTime': 1735674859297}

@@ -4,59 +4,39 @@ from src.api.api import InternalAPIConnection
 import src.logs.log as log
 
 class Symbol:
-  def __init__(self, name):
+  def __init__(self, name, connection):
     # public info
     self.name = name
-    self.prices = None
-    self.current_price = -1
+    self.connection: InternalAPIConnection = connection
 
-    # private info
-    self.bought_amount_usdt = 0
-    self.last_buy_at = None
-    self.last_sell_at = None
 
-  def GetPrices(self, timerow):
-    prices = []
-    last_timestamp = -1
-    for timestamp, value in timerow.items():
-       assert timestamp > last_timestamp
-       prices.append(value)
-       last_timestamp = timestamp
-    return prices
+  def GetTimerow(self):
+    klines = self.connection.GetSymbolTimerow(self.name)
+    log.info(f"Actualizing symbol={self.name}. Timerow size={len(klines)}")
+    return [{kline[0], kline[1]} for kline in klines]
 
-  def Actualize(self, connection):
-    log.info(f"Actualizing symbol={self.name}")
-    self.prices = self.GetPrices(connection.GetSymbolTimerow(self.name))
-
-    log.debug(f"Actualizing symbol={self.name}")
-    log.debug(f"Timerow={self.prices}\n\n\n")
-
-  def Buy(self, connection, order_parameters):
-    timestamp_ms = int(time.time() * 1000)
+  def Buy(self, order_parameters):
+    timestamp = int(time.time() * 1000)
 
     order_parameters["symbol"] = self.name
     order_parameters["side"] = "BUY"
     order_parameters["recvWindow"] = 5000
-    order_parameters["timestamp_ms"] = timestamp_ms
+    order_parameters["timestamp_ms"] = timestamp
 
     try:
-      connection.Buy(order_parameters)
-      self.bought_amount_usdt += order_parameters["quantity"]
-      self.last_buy_at = timestamp_ms
+      self.connection.Buy(order_parameters)
     except Exception as e:
-          log.error(str(e))
+      log.error(str(e))
 
-  def Sell(self, connection, order_parameters):
-    timestamp_ms = int(time.time() * 1000)
+  def Sell(self, order_parameters):
+    timestamp = int(time.time() * 1000)
 
     order_parameters["symbol"] = self.name
     order_parameters["side"] = "SELL"
     order_parameters["recvWindow"] = 5000
-    order_parameters["timestamp_ms"] = timestamp_ms
+    order_parameters["timestamp_ms"] = timestamp
 
     try:
-      connection.Sell(order_parameters)
-      self.bought_amount_usdt -= order_parameters["quantity"]
-      self.last_sell_at = timestamp_ms
+      self.connection.Sell(order_parameters)
     except Exception as e:
-          log.error(str(e))
+      log.error(str(e))
