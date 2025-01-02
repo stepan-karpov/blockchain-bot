@@ -11,3 +11,11 @@ CREATE TABLE IF NOT EXISTS testing.currencies_history (
 
   PRIMARY KEY (currency, open_time, close_time)
 );
+
+CREATE TABLE IF NOT EXISTS testing.currencies_values(
+  currency TEXT NOT NULL,
+  timestamp BIGINT,
+  value NUMERIC(30, 15),
+
+  PRIMARY KEY (currency, timestamp)
+);

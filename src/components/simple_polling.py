@@ -1,8 +1,6 @@
-import time
 from typing import List
 
 from src.symbol.symbol import Symbol
-from src.api.api import InternalAPIConnection
 import src.logs.log as log 
 
 class SimplePoller:
@@ -12,26 +10,22 @@ class SimplePoller:
     self.symbols: List[Symbol] = []
 
     for symbol_name_to_poll in symbol_names_to_poll:
-      current_symbol = Symbol(symbol_name_to_poll)
+      current_symbol = Symbol(symbol_name_to_poll, connection)
       log.info(f"{symbol_name_to_poll} added to list of symbols to poll")
       self.symbols.append(current_symbol)
   
-  def Run(self, SleepFunction, EndFunction):
+  def Run(self, sleep_function, end_function):
     while True:
       for symbol in self.symbols:
-        symbol.Actualize(self.connection)
-
-        order_parameters = self.strategy.DecideIfBuy(symbol)
-        if len(order_parameters) == 0:
-          continue
-        symbol.Buy(self.connection, order_parameters)
+        order_parameters_buy = self.strategy.DecideIfBuy(symbol)
+        order_parameters_sell = self.strategy.DecideIfSell(symbol)
         
-        order_parameters = self.strategy.DecideIfSell(symbol)
-        if len(order_parameters) == 0:
-          continue
-        symbol.Sell(self.connection, order_parameters)
+        if (order_parameters_buy != {}):
+          symbol.Buy(order_parameters_buy)
+        elif (order_parameters_sell != {}):
+          symbol.Sell(order_parameters_sell)
 
 
-      SleepFunction()
-      if EndFunction():
+      sleep_function()
+      if end_function():
         return

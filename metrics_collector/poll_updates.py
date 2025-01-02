@@ -4,7 +4,6 @@ import datetime
 import requests
 
 import psycopg2
-from psycopg2 import sql
 
 BASE_URL = "https://api.mexc.com"
 

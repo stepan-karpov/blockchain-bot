@@ -1,1 +1,11 @@
-2025-01-01 14:08:53.254492 Internal API init
+2024-12-02 22:22:00.0 Internal API init
+2024-12-02 22:22:00.0 AITPROTOCOLUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 ETHUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 PEPEUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 JUPUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 WIFUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 GNSUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 ZEREBROUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 MEMESAIUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 SOLUSDT added to list of symbols to poll
+2024-12-02 22:22:00.0 BTCUSDT added to list of symbols to poll
